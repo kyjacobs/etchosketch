@@ -1,16 +1,29 @@
-#container {
+/*#container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    height: 650px;
+    width: 650px;
+}
+
+#btn-div {
+    margin-bottom: 50px;
 }
 
 .flex-container {
     display: flex;
+    flex: 1 1 0px;
+}
+*/
+
+#container{
+    display: grid;
+    height: 600px;
+    width: 600px;
+    border: 1px solid black;
 }
 
 .box {
-    height: 25px;
-    width: 25px;
-    border: 1px solid black;
+    border: 1px solid gray;
 }

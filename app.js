@@ -1,22 +1,43 @@
-const MIN_SIZE = 16;
+const SIZE_DEFAULT = 16;
 const COLOR_DEFAULT = "black";
 
 const container = document.getElementById('container');
-const body = document.querySelector('body');
 
 function createGrid(size) {
-    for(let i = 0; i < size; i++) {
-        const flexContainer = document.createElement('div');
-        flexContainer.classList.add('flex-container');
-        container.appendChild(flexContainer);
-        for(let j = 0; j < size; j++) {
-            const box = document.createElement('div');
-            box.classList.add('box');
-            box.addEventListener('mousedown', beginDrawing);
-            box.addEventListener('mouseup', stopDrawing);
-            flexContainer.appendChild(box);
-        }
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    for(let i = 0; i < size*size; i++){
+        const box = document.createElement('div');
+        box.classList.add('box');
+        box.addEventListener('mousedown', beginDrawing);
+        box.addEventListener('mouseup', stopDrawing);
+        container.appendChild(box);
     }
+}
+
+/*
+    Stop-gap solution, eventually I want to have dynamic resizing via slider or some other method.
+*/
+function newGrid() {
+    let newSize = prompt("Enter desired size for new grid: ");
+    if(newSize == null) {
+        return;
+    }
+    else if(newSize > 100 || newSize < 1){
+        alert("Please choose a value between 1 and 100");
+        newGrid();
+    }
+    else {
+        clearGrid();
+        createGrid(newSize);
+    }
+}
+
+function clearGrid(){
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach((box) => {
+        box.remove();
+    });
 }
 
 function beginDrawing(e) {
@@ -38,9 +59,6 @@ function draw(e) {
     e.target.style.backgroundColor = COLOR_DEFAULT;
 }
 
-
-
-
 window.onload = () => {
-    createGrid(MIN_SIZE);
+    createGrid(SIZE_DEFAULT);
 }
