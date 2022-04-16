@@ -1,7 +1,22 @@
 const SIZE_DEFAULT = 16;
 const COLOR_DEFAULT = "black";
+let SIZE_NEW = SIZE_DEFAULT;
 
 const container = document.getElementById('container');
+
+function getNewSize(){
+    let currentSize = SIZE_NEW;
+    SIZE_NEW = prompt("Enter desired size for new grid (between 1 and 100): ");
+    if (SIZE_NEW == null) {
+        SIZE_NEW = currentSize;
+        return;
+    }
+    else if(SIZE_NEW < 1 || SIZE_NEW > 100) {
+        alert("Invalid Size");
+        getNewSize();
+    }
+    
+}
 
 function createGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -15,29 +30,21 @@ function createGrid(size) {
     }
 }
 
-/*
-    Stop-gap solution, eventually I want to have dynamic resizing via slider or some other method.
-*/
-function newGrid() {
-    let newSize = prompt("Enter desired size for new grid: ");
-    if(newSize == null) {
-        return;
-    }
-    else if(newSize > 100 || newSize < 1){
-        alert("Please choose a value between 1 and 100");
-        newGrid();
-    }
-    else {
-        clearGrid();
-        createGrid(newSize);
-    }
+function resizeGrid(){
+    getNewSize();
+    clearGrid();
 }
 
-function clearGrid(){
+function deleteGrid(){
     const boxes = document.querySelectorAll('.box');
     boxes.forEach((box) => {
         box.remove();
     });
+}
+
+function clearGrid(){
+    deleteGrid();
+    createGrid(SIZE_NEW);
 }
 
 function beginDrawing(e) {
