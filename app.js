@@ -26,9 +26,11 @@ function getNewSize(){
 function createGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
     for(let i = 0; i < size*size; i++){
         const box = document.createElement('div');
         box.classList.add('box');
+        box.classList.add('bordered');
         box.addEventListener('mousedown', beginDrawing);
         box.addEventListener('mouseup', stopDrawing);
         container.appendChild(box);
@@ -50,6 +52,24 @@ function deleteGrid(){
 function clearGrid(){
     deleteGrid();
     createGrid(SIZE_NEW);
+    toggleGridLines();
+}
+
+function toggleGridLines(){
+    const gridButton = document.getElementById('grid-btn');
+    const boxes = document.querySelectorAll('.box');
+    if(gridButton.textContent === "Hide grid lines") {
+        gridButton.textContent = "Show grid lines";
+        boxes.forEach((box) => {
+            box.classList.remove('bordered');
+        });
+    } 
+    else {
+        gridButton.textContent  = "Hide grid lines";
+        boxes.forEach((box) => {
+            box.classList.add('bordered');
+        });
+    }
 }
 
 function beginDrawing(e) {
