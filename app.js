@@ -1,8 +1,13 @@
 const SIZE_DEFAULT = 16;
-const COLOR_DEFAULT = "black";
-let SIZE_NEW = SIZE_DEFAULT;
-
+const COLOR_DEFAULT = "black"; // Maybe delete? Not really used.
 const container = document.getElementById('container');
+let SIZE_NEW = SIZE_DEFAULT;
+let COLOR_NEW = COLOR_DEFAULT;
+let colorInput = document.querySelector('#color');
+colorInput.addEventListener('input', () => {
+    let color = colorInput.value;
+    COLOR_NEW = color;
+});
 
 function getNewSize(){
     let currentSize = SIZE_NEW;
@@ -63,7 +68,7 @@ function stopDrawing() {
 }
 
 function draw(e) {
-    e.target.style.backgroundColor = COLOR_DEFAULT;
+    e.target.style.backgroundColor = COLOR_NEW;
 }
 
 window.onload = () => {
