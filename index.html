@@ -4,19 +4,34 @@
   <link href="style.css" rel="stylesheet">
   <script src="app.js" defer></script>
   <meta charset="UTF-8">
-  <title>Etch-o-sketch</title>
+  <title>Etch-a-Sketch</title>
 </head>
 <body>
+  <div id="header">
+    <div class="leaf"></div>
+    <h1>Etch-a-Sketch</h1>
+    <div class="leaf"></div>
+  </div>
 
-  <div id="container">
-    
+  <div id="wrapper">
+    <div id="menu-container">
+      <div id="color-div">
+        <label for="color">Color: </label>
+        <input type="color" id="color">
+      </div>
+      <div id="btn-div">
+        <button id="resize-btn" onclick="resizeGrid()">Resize</button>
+        <button id="clear-btn" onclick="clearGrid()">Clear</button>
+        <button id="grid-btn" onclick="toggleGridLines()">Hide grid lines</button>
+      </div>
+    </div>
+    <div id="nat-div">
+      <h4>Natural Color Mode</h4>
+      <button id="nature-colors" onclick="natColorToggle()"></button>
+    </div>
+    <div id="container"></div>
   </div>
-    <div id="btn-div">
-      <button id="resize-btn" onclick="resizeGrid()">Resize</button>
-      <button id="clear-btn" onclick="clearGrid()">Clear</button>
-      <button id="grid-btn" onclick="toggleGridLines()">Hide grid lines</button>  
-  </div>
-  <label for="color">Color: </label>
-  <input type="color" id="color">
+
+  <div id="footer">Copyright © 2022 kyjacobs</div>
 </body>
 </html>
