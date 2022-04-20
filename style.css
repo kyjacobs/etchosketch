@@ -1,29 +1,123 @@
-/*#container {
+html, body {
+    min-height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #FFFAEF;
+    margin: 0;
+}
+
+button, #color-div {
+    padding: 15px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    background-color: #cfe1c9;
+    box-shadow: 0 3px #d3d3d3;
+    border: none;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Twiggy-2KPv', sans-serif;
+    font-size: 72px;
+    color: #855e42;
+}
+
+@font-face {
+    font-family: 'Twiggy-2KPv';
+    src: url('assets/Twiggy-2KPv.otf');
+}
+
+#nature-colors {
+    background-image: url("./assets/icons8-leaf-60.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 360px;
+    height: 100px;
+    width: 100px;
+}
+
+#color-div {
+    font-size: 12px;
+    box-shadow: none;
+}
+
+#nat-div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    height: 650px;
-    width: 650px;
+    color: #e09f3e;
+}
+
+button:hover {
+    background-color: #cccfbd;
+}
+
+button:active {
+    background-color: #cccfbd;
+    box-shadow: 0 2px #c9c9c9;
+    transform: translateY(3px);
 }
 
 #btn-div {
-    margin-bottom: 50px;
-}
-
-.flex-container {
     display: flex;
-    flex: 1 1 0px;
+    flex-direction: column;
+    gap: 10px;
 }
-*/
 
-#container{
+#header {
+    height: 75px;
+    width: 100vw;
+    background-color: #cfe1c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+#footer {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 30px;
+    width: 100vw;
+    background-color: #cfe1c9;
+    color: #FFFAEF;
+    bottom: 0;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 35px 0px;
+}
+
+#container {
     display: grid;
     height: 600px;
     width: 600px;
-    border: 1px solid black;
+    border: 1px solid black; 
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 15px;
 }
 
 .bordered {
-    border: 1px solid gray;
+    border: 1px solid #d3d3d3;
+}
+
+.leaf {
+    height: 75px;
+    width: 70px;
+    background-image: url('./assets/icons8-leaf-64.png');
+    background-position: center;
+    background-repeat: no-repeat;
 }
